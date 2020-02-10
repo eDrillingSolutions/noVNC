@@ -64,6 +64,13 @@ protocol stream.
     to the element containing the remote session screen. The default value is `rgb(40, 40, 40)`
     (solid gray color).
 
+`qualityLevel`
+  - Is an `int` in range `[0-9]` controlling [`JPEG Quality Level Pseudo-encoding`](https://github.com/rfbproto/rfbproto/blob/master/rfbproto.rst#jpeg-quality-level-pseudo-encoding). Value `0` is equivalent to
+    `-32` (low quality), and `9` is equivalent to `-23` (high quality).
+    Value passed to `qualityLevel` setter is verified to be an integer between `0` and `9`.
+    Any other values will be ignored, and error message will be output.
+    Default value is `6`.
+
 `capabilities` *Read only*
   - Is an `Object` indicating which optional extensions are available
     on the server. Some methods may only be called if the corresponding
